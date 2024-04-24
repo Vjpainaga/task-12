@@ -1,0 +1,35 @@
+public class Main {
+    public static void main(String[] args) {
+        AbstractShape rectangle = new Rectangle(15, 22);
+        AbstractShape circle = new Circle(6);
+
+        System.out.println("Area and perimeter of shapes:");
+        System.out.println("Rectangle: Length-15, Width-22");
+        System.out.println("Area: " + ((Rectangle) rectangle).getArea());
+        System.out.println("Perimeter: " + ((Rectangle) rectangle).getPerimeter());
+
+        System.out.println("Circle: Radius 6");
+        System.out.println("Area: " + ((Circle) circle).getArea());
+        System.out.println("Perimeter: " + ((Circle) circle).getPerimeter());
+
+    }
+}
+
+public class AbstractShape {
+}
+class Circle extends AbstractShape {
+    private double radius;public Circle(double radius) {
+        this.radius = radius;}public double getArea() {
+        return Math.PI * radius * radius;}public double getPerimeter() {
+        return 2 * Math.PI * radius;}
+}class Rectangle extends AbstractShape { private double length;
+    private double width;
+
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;}public double getArea() {
+        return length * width;}public double getPerimeter() {
+        return 2 * (length + width);
+    }
+}
